@@ -1,0 +1,28 @@
+﻿@model GymSpec.Entidades.Pagamento
+
+@using (Html.BeginForm("Adiciona", "Pagamento", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.Valor, "Valor")
+    @Html.TextBoxFor(m => m.Valor, new { @class = "form‐control" })
+    @Html.ValidationMessageFor(m => m.Valor)
+
+    @Html.LabelFor(m => m.AlunoId, "Nome")
+    @Html.DropDownListFor(m => m.AlunoId,
+    new SelectList(ViewBag.Alunoes, "Id", "Nome"),
+    new { @class = "form‐control" })
+    @Html.ValidationMessageFor(m => m.AlunoId)
+
+    @Html.LabelFor(m => m.Tipo, "Tipo Plano")
+    @Html.EnumDropDownListFor(m => m.Tipo, new { @class = "form‐control" })
+    @Html.ValidationMessageFor(m => m.Tipo)
+
+    @Html.LabelFor(m => m.Vencimento, "Vencimento")
+    @Html.TextBoxFor(m => m.Vencimento, new { @class = "form‐control" })
+    @Html.ValidationMessageFor(m => m.Vencimento)
+
+    @Html.LabelFor(m => m.Data, "Data")
+    @Html.TextBoxFor(m => m.Data, new { @class = "form‐control" })
+    @Html.ValidationMessageFor(m => m.Data)
+    
+    <input type="submit" value="Cadastrar" />
+}
